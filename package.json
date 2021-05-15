@@ -1,7 +1,7 @@
 {
-  "name": "cmv",
+  "name": "[PACKAGE]",
   "version": "0.0.1",
-  "description": "commandville",
+  "description": "[DESCRIPTION]",
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
@@ -20,21 +20,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dworthen/commandville.git"
+    "url": "git+https://[REPO].git"
   },
-  "keywords": [
-    "unix",
-    "commands"
-  ],
   "author": "Derek Worthen <worthend.derek@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dworthen/commandville/issues"
+    "url": "https://[REPO]/issues"
   },
-  "homepage": "https://github.com/dworthen/commandville#readme",
+  "homepage": "https://[REPO]#readme",
   "devDependencies": {
     "@changesets/cli": "^2.16.0",
-    "@jsdevtools/npm-publish": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "eslint": "^7.26.0",
