@@ -1,0 +1,54 @@
+{
+  "name": "cmv",
+  "version": "0.0.1",
+  "description": "commandville",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "pnpm clean -r --parallel",
+    "build": "pnpm build -r --stream",
+    "start": "pnpm start -r --parallel",
+    "format:check": "prettier --check \"./packages/*/src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"./packages/*/src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:check": "eslint \"./packages/*/src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint --fix \"./packages/*/src/**/*.{js,jsx,ts,tsx}\"",
+    "ci:staged": "lint-staged",
+    "release:changeset": "changeset",
+    "release:version": "changeset version",
+    "release:package": "pnpm release:package -r parallel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dworthen/commandville.git"
+  },
+  "keywords": [
+    "unix",
+    "commands"
+  ],
+  "author": "Derek Worthen <worthend.derek@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dworthen/commandville/issues"
+  },
+  "homepage": "https://github.com/dworthen/commandville#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.16.0",
+    "@jsdevtools/npm-publish": "^1.4.3",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-import": "^2.23.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}
