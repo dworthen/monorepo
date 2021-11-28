@@ -2,13 +2,19 @@
   "name": "[PACKAGE]",
   "version": "0.0.1",
   "description": "[DESCRIPTION]",
-  "main": "[NODE_CJS_ENTRY_FILE]",
-  "module": "[ESM_ENTRY_FILE]",
-  "browser": "[BROWSER_ENTRY_FILE]",
-  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./package.json": {
+      "import": "./package.json"
+    }
+  },
   "files": [
     "dist/",
-    "bin/",
     "LICENSE",
     "README.md"
   ],
@@ -17,21 +23,16 @@
     "clean": "shx rm -rf dist",
     "typecheck": "tsc --noEmit",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:package": "esbuild src/**.ts --sourcemap --format=cjs --platform=node --target=node12 --outdir=dist",
+    "build:package": "esbuild ./src/**/*.ts --sourcemap --format=esm --target=es2019 --outdir=dist",
     "build": "run-p build:types build:package",
-    "watch:types": "tsc --noEmit --watch",
-    "watch:package": "pnpm build:package -- --watch",
-    "start": "run-p watch:types watch:package",
-    "release:package": "npm-publish --token $NPM_TOKEN ./package.json"
+    "start": "run-p \"build:types -- --watch\" \"build:package -- --watch\"",
+    "release": "npm-publish --token $NPM_TOKEN ./package.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://[REPO].git"
   },
-  "keywords": [
-    "commandville",
-    "core"
-  ],
+  "keywords": [],
   "author": "Derek Worthen <worthend.derek@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -43,6 +44,6 @@
     "esbuild": "^0.11.17",
     "npm-run-all": "^4.1.5",
     "shx": "^0.3.3",
-    "typescript": "^4.2.4"
+    "typescript": "^4.4.4"
   }
 }

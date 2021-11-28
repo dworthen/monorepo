@@ -5,18 +5,19 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "pnpm test -r --parallel",
     "clean": "pnpm clean -r --parallel",
     "build": "pnpm build -r --stream",
     "start": "pnpm start -r --parallel",
+    "typecheck": "pnpm typecheck -r --parallel",
     "format:check": "prettier --check \"./packages/*/src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write \"./packages/*/src/**/*.{js,jsx,ts,tsx}\"",
     "lint:check": "eslint \"./packages/*/src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint --fix \"./packages/*/src/**/*.{js,jsx,ts,tsx}\"",
-    "ci:staged": "lint-staged",
+    "git:precommit": "run-s typecheck lint-staged",
     "release:changeset": "changeset",
     "release:version": "changeset version",
-    "release:package": "pnpm release:package -r parallel"
+    "release:package": "pnpm release -r parallel"
   },
   "repository": {
     "type": "git",
@@ -40,11 +41,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.0",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
+    "prettier": "^2.4.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
   }
 }

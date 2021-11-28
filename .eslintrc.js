@@ -10,5 +10,6 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
 }
